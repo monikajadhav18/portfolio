@@ -1,0 +1,44 @@
+1. Healthcare Management System
+
+Technologies:
+ASP.NET MVC
+SQL Server
+Bootstrap
+
+Features:
+Patient Registration
+Appointment Scheduling
+Consultation Management
+
+2. Fleet Management System
+
+Features:
+Vehicle Booking
+Vehicle Allocation
+Utilization Tracking
+
+3. Document Management System
+
+Features:
+Digital Signatures
+Approval Workflow
+Secure Document Storage
+
+4. Service Management System
+
+Features:
+Customer Support
+Product Service Requests
+Ticket Management
+
+5. AI Resume Analyzer (Future Project)
+
+Features:
+Resume Upload
+ATS Analysis
+AI Suggestions
+
+Tech Stack:
+Angular
+ASP.NET Core
+OpenAI API
