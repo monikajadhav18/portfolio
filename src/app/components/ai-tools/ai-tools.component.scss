@@ -1,0 +1,302 @@
+// ============================================================
+// AI TOOLS SECTION
+// ============================================================
+
+.ai-tools-section {
+  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 50%, var(--color-bg-primary) 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  &.slide-left  { transform: translateX(-36px); }
+  &.slide-right { transform: translateX(36px); }
+  &.in-view { opacity: 1; transform: translate(0); }
+}
+
+// ──── Main Grid ────
+
+.ai-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+
+  @media (max-width: 900px) { grid-template-columns: 1fr; gap: 28px; }
+}
+
+// ──── Tools Column ────
+
+.tools-header, .use-cases-header {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.tool-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-mid);
+  animation: fadeInUp 0.5s calc(var(--i, 0) * 0.09s) ease both;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--tool-color) 35%, transparent);
+    background: rgba(10, 18, 38, 0.85);
+    transform: translateX(6px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3),
+                -4px 0 0 color-mix(in srgb, var(--tool-color) 60%, transparent);
+  }
+}
+
+.tool-card-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.tool-icon {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--tool-dim);
+  border: 1px solid color-mix(in srgb, var(--tool-color) 28%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition-mid);
+}
+
+.tool-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.tool-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+}
+
+.tool-card-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.tool-proficiency {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  min-width: 80px;
+}
+
+.prof-pct {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.prof-bar-track {
+  width: 80px;
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.prof-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tool-uses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+}
+
+.tool-use-tag {
+  padding: 3px 10px;
+  border: 1px solid;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: var(--transition-fast);
+}
+
+// ──── Use Cases Column ────
+
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+
+  @media (max-width: 480px) { grid-template-columns: 1fr; }
+}
+
+.use-case-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--color-bg-glass);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: var(--transition-mid);
+  animation: fadeInUp 0.5s calc(var(--j, 0) * 0.08s) ease both;
+
+  &:hover {
+    background: var(--color-bg-glass-hover);
+    border-color: color-mix(in srgb, var(--uc-color) 35%, transparent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  }
+}
+
+.uc-icon {
+  width: 36px; height: 36px;
+  flex-shrink: 0;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  transition: var(--transition-mid);
+}
+
+.uc-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.uc-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+// ──── Quote ────
+
+.ai-quote {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(59,130,246,0.05);
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: var(--radius-lg);
+}
+
+.quote-bar {
+  width: 3px;
+  flex-shrink: 0;
+  background: var(--gradient-accent);
+  border-radius: 3px;
+}
+
+.quote-text {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.quote-author {
+  font-size: 0.72rem;
+  color: var(--color-accent-bright);
+  letter-spacing: 0.08em;
+}
+
+// ──── Prompt Engineering Strip ────
+
+.prompt-strip {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(6,182,212,0.4), transparent);
+  }
+}
+
+.prompt-strip-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.prompt-icon {
+  width: 52px; height: 52px;
+  flex-shrink: 0;
+  background: rgba(6,182,212,0.1);
+  border: 1px solid rgba(6,182,212,0.25);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--color-teal);
+}
+
+.prompt-content {
+  flex: 1;
+  min-width: 200px;
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 0.87rem;
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+  }
+}
+
+.prompt-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+}

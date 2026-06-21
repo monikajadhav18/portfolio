@@ -1,0 +1,122 @@
+<section class="about-section section-padding" id="about">
+
+  <!-- Ambient orbs -->
+  <div class="orb orb-blue" style="width:500px;height:500px;top:-10%;left:-15%;opacity:0.35;filter:blur(90px);pointer-events:none;position:absolute;"></div>
+  <div class="orb orb-teal" style="width:380px;height:380px;bottom:5%;right:-10%;opacity:0.25;filter:blur(80px);pointer-events:none;position:absolute;"></div>
+
+  <div class="container-xl" style="position:relative;z-index:1;">
+
+    <!-- Section header -->
+    <div class="section-header scroll-reveal" #animEl>
+      <span class="section-label">About Me</span>
+      <h2 class="section-title">The Developer Behind the Code</h2>
+      <p class="section-subtitle">
+        Building enterprise solutions that scale, with a passion for clean code and AI-accelerated development.
+      </p>
+    </div>
+
+    <!-- Main about grid -->
+    <div class="about-grid">
+
+      <!-- LEFT — Visual column -->
+      <div class="about-visual scroll-reveal slide-left" #animEl>
+        <div class="visual-card">
+          <!-- Decorative corner accent -->
+          <div class="corner-tl"></div>
+          <div class="corner-br"></div>
+
+          <!-- Avatar area -->
+          <div class="about-avatar-wrap">
+            <div class="about-avatar">
+              <div class="avatar-ring ring-a"></div>
+              <div class="avatar-ring ring-b"></div>
+              <div class="avatar-inner-circle">
+                <span class="avatar-mono-text font-mono">&lt;MJ /&gt;</span>
+              </div>
+            </div>
+            <!-- Status badge -->
+            <div class="available-badge">
+              <span class="badge-dot"></span>
+              Open to work
+            </div>
+          </div>
+
+          <!-- Quick facts -->
+          <div class="quick-facts">
+            <div class="qf-title font-mono">// Quick Facts</div>
+            <div class="qf-list">
+              <div class="qf-item" *ngFor="let fact of quickFacts">
+                <i [class]="fact.icon + ' qf-icon'"></i>
+                <div class="qf-content">
+                  <span class="qf-label">{{ fact.label }}</span>
+                  <a *ngIf="fact.link" [href]="fact.link" class="qf-value qf-link">{{ fact.value }}</a>
+                  <span *ngIf="!fact.link" class="qf-value" [class.qf-highlight]="fact['highlight']">{{ fact.value }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Download resume -->
+          <a href="/Resume/Monika_Jadhav_Resume.pdf" download class="btn-primary-custom about-resume-btn">
+            <i class="fas fa-file-arrow-down"></i>
+            Download Resume
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT — Content column -->
+      <div class="about-content scroll-reveal slide-right" #animEl>
+
+        <!-- Intro text -->
+        <div class="about-intro">
+          <p class="intro-line">
+            Hi! I'm <strong class="name-highlight">Monika Jadhav</strong>, a passionate
+            <strong class="role-highlight">Full Stack .NET Developer</strong> based in Nashik, India.
+          </p>
+          <p class="intro-body">
+            With <strong>2+ years of professional experience</strong> at Milesoft Software Technologies,
+            I design, develop, and maintain enterprise-grade web applications that serve real business needs
+            across Healthcare Management, Fleet Management, Service Management, and Document Management domains.
+          </p>
+          <p class="intro-body">
+            My stack centers on <strong>ASP.NET Core Web API</strong>, <strong>ASP.NET MVC</strong>,
+            <strong>Angular</strong>, <strong>C#</strong>, and <strong>SQL Server</strong> — backed by
+            a deep appreciation for clean architecture, scalable API design, and performance-optimized queries.
+          </p>
+          <p class="intro-body">
+            Beyond the fundamentals, I actively integrate AI tools like <strong>GitHub Copilot</strong>,
+            <strong>Claude</strong>, and <strong>ChatGPT</strong> into my development workflow, using them
+            to accelerate delivery, sharpen code quality, and tackle complex problems more creatively.
+          </p>
+        </div>
+
+        <!-- Highlight cards -->
+        <div class="highlights-grid">
+          <div
+            class="highlight-card"
+            *ngFor="let h of highlights; let i = index"
+            [style.--delay]="i * 0.08 + 's'">
+            <div class="hc-icon-wrap">
+              <i [class]="h.icon"></i>
+            </div>
+            <div class="hc-body">
+              <h4 class="hc-title">{{ h.title }}</h4>
+              <p class="hc-desc">{{ h.desc }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Domains worked in -->
+        <div class="domains-section">
+          <span class="domains-label font-mono">// Domains Worked In</span>
+          <div class="domains-list">
+            <span class="domain-tag" *ngFor="let d of ['Healthcare Management','Fleet Management','Service Management','Document Management','ERP Solutions','Digital Signatures']">
+              {{ d }}
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+<section class="achievements-section section-padding" id="achievements">
+
+  <!-- Ambient -->
+  <div class="orb orb-blue" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.12;filter:blur(120px);pointer-events:none;position:absolute;"></div>
+
+  <div class="container-xl" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="section-header scroll-reveal" #animEl>
+      <span class="section-label">By The Numbers</span>
+      <h2 class="section-title">Achievements & Milestones</h2>
+      <p class="section-subtitle">A snapshot of the growth, impact, and technical breadth built over 2+ years.</p>
+    </div>
+
+    <!-- Counter grid -->
+    <div class="achievements-grid">
+      <div
+        class="achievement-card scroll-reveal"
+        #animEl
+        *ngFor="let a of achievements; let i = index"
+        [style.--a-color]="a.color"
+        [style.--a-dim]="a.colorDim"
+        [style.--i]="i">
+
+        <!-- Glow bg -->
+        <div class="ach-glow-bg"></div>
+
+        <!-- Icon -->
+        <div class="ach-icon">
+          <i [class]="a.icon" [style.color]="a.color"></i>
+        </div>
+
+        <!-- Counter -->
+        <div class="ach-counter">
+          <span class="ach-value">{{ a.displayValue }}</span>
+          <span class="ach-suffix" [style.color]="a.color">{{ a.suffix }}</span>
+        </div>
+
+        <!-- Labels -->
+        <h4 class="ach-label">{{ a.label }}</h4>
+        <p class="ach-sublabel">{{ a.sublabel }}</p>
+
+        <!-- Bottom accent line -->
+        <div class="ach-bottom-line" [style.background]="a.color"></div>
+      </div>
+    </div>
+
+  </div>
+</section>

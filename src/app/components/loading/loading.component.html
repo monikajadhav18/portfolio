@@ -1,0 +1,52 @@
+<div class="loading-screen" [@screenExit]>
+  <!-- Background orbs -->
+  <div class="orb orb-blue" style="width:500px;height:500px;top:-10%;left:-10%;opacity:0.4;"></div>
+  <div class="orb orb-teal" style="width:400px;height:400px;bottom:0;right:-5%;opacity:0.3;"></div>
+
+  <!-- Grid pattern -->
+  <div class="loading-grid"></div>
+
+  <!-- Content -->
+  <div class="loading-content">
+    <!-- Logo mark -->
+    <div class="loading-logo">
+      <div class="logo-ring logo-ring-outer">
+        <div class="ring-segment"></div>
+      </div>
+      <div class="logo-ring logo-ring-inner">
+        <div class="ring-segment ring-segment-inner"></div>
+      </div>
+      <div class="logo-center">
+        <span class="logo-initials">MJ</span>
+      </div>
+    </div>
+
+    <!-- Name & role -->
+    <div class="loading-identity">
+      <h1 class="loading-name">Monika Jadhav</h1>
+      <p class="loading-role">
+        <span class="role-bracket">&lt;</span>
+        Full Stack .NET Developer
+        <span class="role-bracket">/&gt;</span>
+      </p>
+    </div>
+
+    <!-- Progress -->
+    <div class="loading-progress-container">
+      <div class="progress-track">
+        <div class="progress-fill" [style.width.%]="progress">
+          <div class="progress-glow"></div>
+        </div>
+      </div>
+      <div class="progress-info">
+        <span class="progress-status">{{ statusText }}</span>
+        <span class="progress-percent font-mono">{{ progress }}%</span>
+      </div>
+    </div>
+
+    <!-- Tech dots -->
+    <div class="loading-dots">
+      <span class="dot" *ngFor="let d of [1,2,3,4,5]" [style.animation-delay.ms]="d * 120"></span>
+    </div>
+  </div>
+</div>

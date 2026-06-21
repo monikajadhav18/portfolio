@@ -1,0 +1,171 @@
+<section class="hero-section" id="home">
+
+  <!-- Ambient Background -->
+  <div class="hero-bg">
+    <div class="bg-gradient-radial bg-radial-1"></div>
+    <div class="bg-gradient-radial bg-radial-2"></div>
+    <div class="bg-gradient-radial bg-radial-3"></div>
+    <div class="grid-pattern"></div>
+    <div class="hero-lines">
+      <div class="h-line h-line-1"></div>
+      <div class="h-line h-line-2"></div>
+      <div class="v-line v-line-1"></div>
+    </div>
+  </div>
+
+  <!-- Floating Tech Particles -->
+  <div class="tech-particles" aria-hidden="true">
+    <span class="particle font-mono" style="top:14%;left:8%;animation-delay:0s">.NET</span>
+    <span class="particle font-mono" style="top:22%;right:10%;animation-delay:0.8s">C#</span>
+    <span class="particle font-mono" style="top:65%;left:5%;animation-delay:1.5s">Angular</span>
+    <span class="particle font-mono" style="top:72%;right:8%;animation-delay:0.4s">SQL</span>
+    <span class="particle font-mono" style="top:40%;left:3%;animation-delay:1.1s">API</span>
+    <span class="particle font-mono" style="top:85%;left:20%;animation-delay:2s">TypeScript</span>
+    <span class="particle font-mono" style="top:10%;right:22%;animation-delay:1.7s">Azure</span>
+    <span class="particle font-mono" style="top:50%;right:4%;animation-delay:0.6s">EF Core</span>
+  </div>
+
+  <!-- Main Content -->
+  <div class="hero-content container-xl">
+    <div class="hero-inner">
+
+      <!-- Left — Primary Content -->
+      <div class="hero-left">
+        <!-- Status Badge -->
+        <div class="status-badge anim-fadeInUp delay-1">
+          <span class="status-dot"></span>
+          <span class="status-text">Available for opportunities</span>
+        </div>
+
+        <!-- Greeting -->
+        <p class="hero-greeting anim-fadeInUp delay-2">
+          <span class="font-mono greeting-code">Hello, World! 👋</span>
+        </p>
+
+        <!-- Name -->
+        <h1 class="hero-name anim-fadeInUp delay-2">
+          <span class="name-line">Monika</span>
+          <span class="name-line name-gradient">Jadhav</span>
+        </h1>
+
+        <!-- Role with typing animation -->
+        <div class="hero-role-wrapper anim-fadeInUp delay-3">
+          <span class="role-prefix">I am a</span>
+          <span class="typing-container">
+            <span class="typing-text gradient-text">{{ currentTypingText }}</span>
+            <span class="typing-cursor" aria-hidden="true">|</span>
+          </span>
+        </div>
+
+        <!-- Summary -->
+        <p class="hero-summary anim-fadeInUp delay-4">
+          Full Stack .NET Developer with <strong>2+ years</strong> of experience building
+          enterprise-grade applications across Healthcare, Fleet, and Service Management domains.
+          Passionate about clean architecture and AI-assisted development.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-ctas anim-fadeInUp delay-5">
+          <button class="btn-primary-custom" (click)="scrollTo('#projects')">
+            <i class="fas fa-diagram-project"></i>
+            View Projects
+          </button>
+
+          <a class="btn-outline-custom" href="/Resume/Monika_Jadhav_Resume.pdf" download>
+            <i class="fas fa-file-arrow-down"></i>
+            Download Resume
+          </a>
+
+          <button class="btn-ghost" (click)="scrollTo('#contact')">
+            <i class="fas fa-envelope"></i>
+            Contact Me
+          </button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="hero-socials anim-fadeInUp delay-5">
+          <span class="social-label">Connect</span>
+          <div class="social-divider"></div>
+          <div class="social-links">
+            <a
+              *ngFor="let link of socialLinks"
+              [href]="link.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              [attr.aria-label]="link.label">
+              <i [class]="link.icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right — Visual Card -->
+      <div class="hero-right anim-fadeInRight delay-3">
+        <div class="profile-card">
+          <!-- Card glow rings -->
+          <div class="card-glow-ring ring-1"></div>
+          <div class="card-glow-ring ring-2"></div>
+
+          <!-- Avatar area -->
+          <div class="avatar-wrapper">
+            <div class="avatar-frame">
+              <div class="avatar-inner">
+                <div class="avatar-initials">MJ</div>
+                <div class="avatar-bg-pattern"></div>
+              </div>
+            </div>
+            <!-- Floating badges -->
+            <div class="floating-badge badge-dotnet anim-float">
+              <i class="fas fa-code"></i>
+              .NET Dev
+            </div>
+            <div class="floating-badge badge-angular anim-float" style="animation-delay: 1s">
+              <i class="fas fa-bolt"></i>
+              Angular
+            </div>
+            <div class="floating-badge badge-years anim-float" style="animation-delay: 0.5s">
+              <i class="fas fa-star"></i>
+              2+ Years
+            </div>
+          </div>
+
+          <!-- Card info -->
+          <div class="card-info">
+            <h2 class="card-name">Monika Jadhav</h2>
+            <p class="card-title">Full Stack .NET Developer</p>
+
+            <div class="card-location">
+              <i class="fas fa-location-dot"></i>
+              Nashik, Maharashtra, India
+            </div>
+
+            <!-- Tech stack pills -->
+            <div class="card-tech-stack">
+              <span class="tech-badge" *ngFor="let tech of ['C#', 'ASP.NET', 'Angular', 'SQL', 'TypeScript']">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Stats strip -->
+          <div class="card-stats">
+            <div class="card-stat" *ngFor="let stat of stats">
+              <div class="stat-value">{{ stat.value }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" (click)="scrollTo('#about')">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span class="scroll-text font-mono">Scroll</span>
+  </div>
+</section>

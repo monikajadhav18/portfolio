@@ -1,0 +1,157 @@
+<section class="experience-section section-padding" id="experience">
+
+  <!-- Ambient -->
+  <div class="orb orb-blue"  style="width:500px;height:500px;bottom:10%;left:-12%;opacity:0.3;filter:blur(100px);pointer-events:none;position:absolute;"></div>
+  <div class="orb orb-teal"  style="width:350px;height:350px;top:5%;right:-8%;opacity:0.22;filter:blur(80px);pointer-events:none;position:absolute;"></div>
+
+  <div class="container-xl" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="section-header scroll-reveal" #animEl>
+      <span class="section-label">Work Experience</span>
+      <h2 class="section-title">Professional Journey</h2>
+      <p class="section-subtitle">
+        Building production-grade enterprise software and growing as a full stack developer.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-wrapper">
+
+      <ng-container *ngFor="let exp of experiences; let i = index">
+
+        <!-- Timeline entry -->
+        <div class="timeline-entry scroll-reveal" #animEl [style.--i]="i">
+
+          <!-- Left: timeline spine -->
+          <div class="timeline-spine">
+            <div class="spine-line" [class.active]="exp.current"></div>
+            <div class="spine-dot" [class.current]="exp.current">
+              <div class="dot-inner"></div>
+              <div class="dot-pulse" *ngIf="exp.current"></div>
+            </div>
+          </div>
+
+          <!-- Right: content card -->
+          <div class="exp-card">
+
+            <!-- Card top glow line -->
+            <div class="card-top-line"></div>
+
+            <!-- Header row -->
+            <div class="exp-header">
+              <div class="exp-company-logo">
+                <span class="company-initial">{{ exp.companyShort[0] }}</span>
+              </div>
+
+              <div class="exp-meta">
+                <div class="exp-meta-top">
+                  <h3 class="exp-role">{{ exp.role }}</h3>
+                  <span class="exp-badge current-badge" *ngIf="exp.current">
+                    <span class="badge-live-dot"></span>
+                    Current
+                  </span>
+                </div>
+                <div class="exp-company-name">
+                  <i class="fas fa-building"></i>
+                  {{ exp.company }}
+                </div>
+                <div class="exp-details-row">
+                  <span class="exp-detail">
+                    <i class="fas fa-calendar-alt"></i>
+                    {{ exp.duration }}
+                  </span>
+                  <span class="exp-detail">
+                    <i class="fas fa-location-dot"></i>
+                    {{ exp.location }}
+                  </span>
+                  <span class="exp-detail">
+                    <i class="fas fa-briefcase"></i>
+                    {{ exp.type }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Key highlights -->
+              <div class="exp-highlights">
+                <div class="highlight-stat" *ngFor="let hl of exp.highlights">
+                  <span class="hl-val">{{ hl.value }}</span>
+                  <span class="hl-lbl">{{ hl.label }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="exp-description">{{ exp.description }}</p>
+
+            <!-- Responsibilities -->
+            <div class="exp-responsibilities">
+              <div class="resp-title font-mono">
+                <i class="fas fa-list-check"></i>
+                Key Responsibilities
+              </div>
+              <div class="resp-grid">
+                <div class="resp-item" *ngFor="let r of exp.responsibilities; let j = index" [style.--j]="j">
+                  <div class="resp-icon">
+                    <i [class]="r.icon"></i>
+                  </div>
+                  <span class="resp-text">{{ r.text }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tech stack -->
+            <div class="exp-tech">
+              <span class="tech-title font-mono">// Tech Stack</span>
+              <div class="tech-tags">
+                <span class="tech-badge" *ngFor="let t of exp.tech">{{ t }}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </ng-container>
+
+      <!-- Education / Coming soon teaser -->
+      <div class="timeline-entry timeline-teaser scroll-reveal" #animEl>
+        <div class="timeline-spine">
+          <div class="spine-line spine-line-dashed"></div>
+          <div class="spine-dot spine-dot-future">
+            <div class="dot-inner dot-inner-future"></div>
+          </div>
+        </div>
+
+        <div class="exp-card exp-card-teaser">
+          <div class="teaser-inner">
+            <i class="fas fa-graduation-cap teaser-icon"></i>
+            <div>
+              <p class="teaser-label font-mono">// Earlier Experience</p>
+              <p class="teaser-text">B.E. in Computer Engineering · Pursuing professional growth since graduation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Summary strip -->
+    <div class="experience-summary scroll-reveal" #animEl>
+      <div class="summary-item" *ngFor="let s of [
+        { icon:'fa-solid fa-calendar-check', val:'2+',   lbl:'Years Experience',     color:'#3b82f6' },
+        { icon:'fa-solid fa-building',       val:'1',    lbl:'Companies',            color:'#818cf8' },
+        { icon:'fa-solid fa-diagram-project',val:'5+',   lbl:'Enterprise Projects',  color:'#f472b6' },
+        { icon:'fa-solid fa-code',           val:'10+',  lbl:'Technologies Used',    color:'#34d399' },
+        { icon:'fa-solid fa-hospital',       val:'4',    lbl:'Business Domains',     color:'#fbbf24' }
+      ]"
+      [style.--s-color]="s.color">
+        <div class="si-icon">
+          <i [class]="s.icon"></i>
+        </div>
+        <div class="si-val">{{ s.val }}</div>
+        <div class="si-lbl">{{ s.lbl }}</div>
+      </div>
+    </div>
+
+  </div>
+</section>

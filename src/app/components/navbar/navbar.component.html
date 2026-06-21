@@ -1,0 +1,55 @@
+<header class="navbar-wrapper" [class.scrolled]="isScrolled">
+  <nav class="navbar-inner container-xl">
+
+    <!-- Logo -->
+    <a class="nav-logo" href="#home" (click)="scrollTo('#home', $event)">
+      <div class="logo-mark">
+        <span class="logo-mark-text">MJ</span>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">Monika Jadhav</span>
+        <span class="logo-role">Full Stack .NET Dev</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <ul class="nav-links" [class.open]="isMobileMenuOpen">
+      <li *ngFor="let item of navItems; let i = index" [style.--i]="i">
+        <a
+          class="nav-link"
+          [class.active]="isActive(item.href)"
+          [href]="item.href"
+          (click)="scrollTo(item.href, $event)">
+          <i class="fas" [class]="item.icon" aria-hidden="true"></i>
+          <span>{{ item.label }}</span>
+          <span class="nav-link-indicator" *ngIf="isActive(item.href)"></span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA + Hamburger -->
+    <div class="nav-actions">
+      <a href="#contact" class="btn-hire" (click)="scrollTo('#contact', $event)">
+        <i class="fas fa-paper-plane"></i>
+        <span>Hire Me</span>
+      </a>
+
+      <button
+        class="hamburger"
+        [class.open]="isMobileMenuOpen"
+        (click)="toggleMobileMenu()"
+        aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    class="mobile-overlay"
+    [class.open]="isMobileMenuOpen"
+    (click)="toggleMobileMenu()">
+  </div>
+</header>

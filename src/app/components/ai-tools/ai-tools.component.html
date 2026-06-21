@@ -1,0 +1,116 @@
+<section class="ai-tools-section section-padding" id="ai-tools">
+
+  <!-- Ambient -->
+  <div class="orb orb-teal"  style="width:500px;height:500px;top:-5%;left:-10%;opacity:0.25;filter:blur(100px);pointer-events:none;position:absolute;"></div>
+  <div class="orb orb-blue"  style="width:400px;height:400px;bottom:5%;right:-8%;opacity:0.2;filter:blur(80px);pointer-events:none;position:absolute;"></div>
+
+  <div class="container-xl" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="section-header scroll-reveal" #animEl>
+      <span class="section-label">AI-Powered Dev</span>
+      <h2 class="section-title">Building Smarter with AI</h2>
+      <p class="section-subtitle">
+        Integrating cutting-edge AI tools into my daily workflow to deliver faster, cleaner, and smarter solutions.
+      </p>
+    </div>
+
+    <!-- Main layout: tools + use cases -->
+    <div class="ai-main-grid">
+
+      <!-- Tools column -->
+      <div class="tools-col scroll-reveal slide-left" #animEl>
+        <div class="tools-header font-mono">// AI Toolkit</div>
+
+        <div class="tool-cards">
+          <div
+            class="tool-card"
+            *ngFor="let tool of tools; let i = index"
+            [style.--tool-color]="tool.color"
+            [style.--tool-dim]="tool.colorDim"
+            [style.--i]="i">
+
+            <div class="tool-card-left">
+              <div class="tool-icon">
+                <i [class]="tool.icon" [style.color]="tool.color"></i>
+              </div>
+              <div class="tool-info">
+                <h4 class="tool-name">{{ tool.name }}</h4>
+                <span class="tool-tagline">{{ tool.tagline }}</span>
+              </div>
+            </div>
+
+            <div class="tool-card-right">
+              <div class="tool-proficiency">
+                <span class="prof-pct font-mono" [style.color]="tool.color">{{ tool.proficiency }}%</span>
+                <div class="prof-bar-track">
+                  <div class="prof-bar-fill" [style.width.%]="tool.proficiency" [style.background]="tool.color"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Uses -->
+            <div class="tool-uses">
+              <span class="tool-use-tag" *ngFor="let u of tool.uses" [style.color]="tool.color" [style.border-color]="tool.color + '30'" [style.background]="tool.colorDim">
+                {{ u }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use cases column -->
+      <div class="use-cases-col scroll-reveal slide-right" #animEl>
+        <div class="use-cases-header font-mono">// How I Use AI</div>
+
+        <div class="use-cases-grid">
+          <div
+            class="use-case-card"
+            *ngFor="let uc of useCases; let j = index"
+            [style.--uc-color]="uc.color"
+            [style.--j]="j">
+
+            <div class="uc-icon" [style.color]="uc.color" [style.background]="uc.color + '14'" [style.border-color]="uc.color + '30'">
+              <i [class]="uc.icon"></i>
+            </div>
+            <div>
+              <h4 class="uc-title">{{ uc.title }}</h4>
+              <p class="uc-desc">{{ uc.desc }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI philosophy quote -->
+        <div class="ai-quote">
+          <div class="quote-bar"></div>
+          <div class="quote-content">
+            <p class="quote-text">
+              "AI doesn't replace the developer — it amplifies them. I use AI as a pair programmer
+              that never sleeps, helping me ship cleaner code faster while I focus on architecture
+              and business logic."
+            </p>
+            <span class="quote-author font-mono">— Monika Jadhav</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Prompt engineering badge strip -->
+    <div class="prompt-strip scroll-reveal" #animEl>
+      <div class="prompt-strip-inner">
+        <div class="prompt-icon">
+          <i class="fa-solid fa-pen-nib"></i>
+        </div>
+        <div class="prompt-content">
+          <h4>Prompt Engineering</h4>
+          <p>Crafting precise, context-rich prompts to get production-quality output from AI models — a skill that multiplies developer productivity across every task.</p>
+        </div>
+        <div class="prompt-tags">
+          <span class="tech-badge" *ngFor="let t of ['Chain-of-Thought', 'Few-Shot', 'Role Prompting', 'Context Injection', 'System Instructions']">{{ t }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

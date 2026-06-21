@@ -1,0 +1,130 @@
+<section class="projects-section section-padding" id="projects">
+
+  <!-- Ambient -->
+  <div class="orb orb-blue"  style="width:550px;height:550px;top:5%;right:-12%;opacity:0.3;filter:blur(100px);pointer-events:none;position:absolute;"></div>
+  <div class="orb orb-teal"  style="width:400px;height:400px;bottom:10%;left:-8%;opacity:0.22;filter:blur(90px);pointer-events:none;position:absolute;"></div>
+
+  <div class="container-xl" style="position:relative;z-index:1;">
+
+    <!-- Header -->
+    <div class="section-header scroll-reveal" #animEl>
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        Enterprise applications built for real business needs — from healthcare to fleet management.
+      </p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="project-filters scroll-reveal" #animEl>
+      <button
+        *ngFor="let f of filters"
+        class="filter-btn"
+        [class.active]="activeFilter === f.id"
+        (click)="setFilter(f.id)">
+        <i [class]="f.icon"></i>
+        {{ f.label }}
+        <span class="filter-count" *ngIf="f.id !== 'all'">
+          {{ (f.id === activeFilter || activeFilter === 'all') ? projects.length : filteredProjects.length }}
+        </span>
+      </button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      <div
+        class="project-card scroll-reveal"
+        #animEl
+        *ngFor="let project of filteredProjects; let i = index"
+        [class.featured]="project.featured"
+        [class.coming-soon]="project.status === 'coming-soon'"
+        [style.--i]="i"
+        [style.--grad-from]="project.gradientFrom"
+        [style.--grad-to]="project.gradientTo"
+        [style.--icon-color]="project.iconColor"
+        [style.--icon-bg]="project.iconBg">
+
+        <!-- Card inner gradient -->
+        <div class="card-gradient-bg"></div>
+
+        <!-- Top line accent -->
+        <div class="card-accent-line" [style.background]="'linear-gradient(90deg, transparent, ' + project.iconColor + '55, transparent)'"></div>
+
+        <!-- Status badge -->
+        <div class="project-status" [class]="'status-' + project.status">
+          <span class="status-pulse" *ngIf="project.status === 'live'"></span>
+          <span class="status-sparkle" *ngIf="project.status === 'coming-soon'">✦</span>
+          {{ project.statusLabel }}
+        </div>
+
+        <!-- Card header -->
+        <div class="project-header">
+          <div class="project-icon-wrap">
+            <i [class]="project.icon" [style.color]="project.iconColor"></i>
+          </div>
+          <div class="project-category font-mono">
+            {{ project.category === 'aspnet' ? 'ASP.NET MVC' : project.category === 'angular' ? 'Angular + API' : 'AI Project' }}
+          </div>
+        </div>
+
+        <!-- Title & description -->
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-desc">{{ project.description }}</p>
+
+        <!-- Features list -->
+        <div class="project-features">
+          <span class="features-label font-mono">// Features</span>
+          <ul class="features-list">
+            <li *ngFor="let f of project.features">
+              <i class="fas fa-circle-check"></i>
+              {{ f }}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tech badges -->
+        <div class="project-tech">
+          <span class="tech-badge" *ngFor="let t of project.tech">{{ t }}</span>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="project-actions">
+          <a [href]="project.githubUrl"
+             class="btn-project-ghost"
+             [class.disabled]="project.status === 'coming-soon'"
+             target="_blank" rel="noopener">
+            <i class="fab fa-github"></i>
+            GitHub
+          </a>
+          <a [href]="project.demoUrl"
+             class="btn-project-primary"
+             [class.disabled]="project.status === 'coming-soon'"
+             [style.--btn-color]="project.iconColor"
+             target="_blank" rel="noopener">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+            {{ project.status === 'coming-soon' ? 'Coming Soon' : 'Live Demo' }}
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GitHub CTA -->
+    <div class="github-cta scroll-reveal" #animEl>
+      <div class="github-cta-inner">
+        <div class="github-cta-icon">
+          <i class="fab fa-github"></i>
+        </div>
+        <div class="github-cta-text">
+          <h4>More Projects on GitHub</h4>
+          <p>Explore all repositories, experiments, and open-source contributions.</p>
+        </div>
+        <a href="https://github.com" target="_blank" class="btn-outline-custom">
+          <i class="fab fa-github"></i>
+          View GitHub Profile
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,96 @@
+<section class="skills-section section-padding" id="skills">
+
+  <!-- Background -->
+  <div class="orb orb-navy" style="width:600px;height:600px;top:10%;right:-15%;opacity:0.4;filter:blur(100px);pointer-events:none;position:absolute;"></div>
+  <div class="orb orb-teal" style="width:350px;height:350px;bottom:0;left:5%;opacity:0.2;filter:blur(80px);pointer-events:none;position:absolute;"></div>
+
+  <div class="container-xl" style="position:relative;z-index:1;">
+
+    <!-- Section header -->
+    <div class="section-header scroll-reveal" #animEl>
+      <span class="section-label">Technical Skills</span>
+      <h2 class="section-title">Tools of the Trade</h2>
+      <p class="section-subtitle">
+        A carefully honed stack built through real enterprise projects and continuous self-improvement.
+      </p>
+    </div>
+
+    <!-- Category tabs -->
+    <div class="skills-tabs scroll-reveal" #animEl>
+      <button
+        *ngFor="let cat of categories"
+        class="tab-btn"
+        [class.active]="activeCategory === cat.id"
+        [style.--cat-color]="cat.color"
+        [style.--cat-dim]="cat.colorDim"
+        (click)="setCategory(cat.id)">
+        <i [class]="cat.icon"></i>
+        <span>{{ cat.label }}</span>
+      </button>
+    </div>
+
+    <!-- Skills panel -->
+    <div class="skills-panel scroll-reveal" #animEl>
+
+      <!-- Panel header -->
+      <div class="panel-header">
+        <div class="panel-icon-wrap" [style.background]="activeData.colorDim" [style.border-color]="activeData.color + '44'">
+          <i [class]="activeData.icon" [style.color]="activeData.color"></i>
+        </div>
+        <div>
+          <h3 class="panel-title">{{ activeData.label }} Skills</h3>
+          <p class="panel-subtitle font-mono">{{ activeData.skills.length }} technologies</p>
+        </div>
+        <div class="panel-meta">
+          <span class="meta-badge" [style.color]="activeData.color" [style.background]="activeData.colorDim" [style.border-color]="activeData.color + '33'">
+            <i class="fas fa-circle-check"></i>
+            Production Ready
+          </span>
+        </div>
+      </div>
+
+      <!-- Skill bars -->
+      <div class="skills-bars-grid">
+        <div
+          class="skill-bar-item"
+          *ngFor="let skill of activeData.skills; let i = index"
+          [style.--idx]="i"
+          [style.--cat-color]="activeData.color"
+          [style.--cat-dim]="activeData.colorDim"
+          [style.--level]="skill.level + '%'">
+
+          <div class="sbi-top">
+            <div class="sbi-left">
+              <div class="sbi-icon">
+                <i [class]="skill.icon"></i>
+              </div>
+              <span class="sbi-name">{{ skill.name }}</span>
+            </div>
+            <div class="sbi-right">
+              <span class="sbi-label">{{ getLevelLabel(skill.level) }}</span>
+              <span class="sbi-pct font-mono">{{ skill.level }}%</span>
+            </div>
+          </div>
+
+          <div class="sbi-track">
+            <div class="sbi-fill">
+              <div class="sbi-shimmer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- All-skills overview bubbles -->
+    <div class="all-skills-strip scroll-reveal" #animEl>
+      <span class="strip-label font-mono">// Full Stack</span>
+      <div class="strip-tags">
+        <span class="strip-tag" *ngFor="let t of ['C#','ASP.NET MVC','ASP.NET Core','Web API','Entity Framework','Angular','TypeScript','JavaScript','HTML5','SCSS','Bootstrap','SQL Server','MySQL','Git','Postman','Swagger','ChatGPT','Copilot','Claude']">
+          {{ t }}
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
